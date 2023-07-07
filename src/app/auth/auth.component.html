@@ -1,8 +1,18 @@
+<ng-template appPlaceholder></ng-template> <!-- marcação para gerar o alerta de forma programática. Essa tag não gera, de início, mais um elemento no DOM, o que uma div faria -->
 <div class="row">
     <div class="col-xs-12">
-        <p 
+        <!-- mostrando o alerta com uma div normal
+        <div 
             class="alert alert-danger"
-            *ngIf="error">{{ error }}</p>
+            *ngIf="error">
+            <p>{{ error }}</p>
+        </div>-->
+        <!-- mostrando o alerta com um componente dinâmico, é a forma mais recomendada de se usar
+        <app-alert 
+            [message]="error" 
+            *ngIf="error" 
+            (close)="onHandleError()"
+        ></app-alert> -->
         <div *ngIf="isLoading" style="text-align: center;">
             <app-loading-spinner></app-loading-spinner>
         </div>
